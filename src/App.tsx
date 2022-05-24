@@ -1,9 +1,10 @@
-import WorldMap from "./components/WorldMap";
+import WorldMap from "./components/WorldMap/WorldMap";
+import worldmapjson from "./data/worldmap_lowres.json";
 
 function App() {
   return (
     <div className="App">
-      <WorldMap />
+      <WorldMap geojson={worldmapjson} height={800} width={1000} />
     </div>
   );
 }
