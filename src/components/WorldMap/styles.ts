@@ -13,6 +13,16 @@ export const Svg = styled.svg.attrs<TSvg>((props: any) => ({
 }))``;
   
 export const Path = styled.path`
-    fill: #0000ff;
+    fill: #f7f7f7;
     stroke: #ccc;
+`;
+
+export const VisitedPath = styled.path`
+    fill: #a1d76a;
+    stroke: #a1d76a;
+`;
+
+export const WantToVisitPath = styled.path`
+    fill: #e9a3c9;
+    stroke: #e9a3c9;
 `;

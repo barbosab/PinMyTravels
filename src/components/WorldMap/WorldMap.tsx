@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import * as d3 from "d3";
-import { Path, Svg } from "./styles";
+import { Path, Svg, VisitedPath, WantToVisitPath } from "./styles";
 
 type Props = {
   geojson: any;
   width: number;
   height: number;
+  visited: string[];
+  wantToVisit: string[];
 };
 
 interface PathCountry {
-  id: string;
   name: string;
   path?: string;
 }
 
-function WorldMap({ geojson, width, height }: Props) {
+function WorldMap({ geojson, width, height, visited, wantToVisit }: Props) {
   const [countries, setCountries] = useState<PathCountry[]>([]);
 
   useEffect(() => {
@@ -31,9 +32,14 @@ function WorldMap({ geojson, width, height }: Props) {
 
   return (
     <Svg width={width} height={height}>
-      {countries.map(({ id, name, path }, index) => (
-        <Path key={index} data-testid={name} d={path} />
-      ))}
+      {countries.map(({ name, path }, index) => {
+        if (visited.includes(name)) {
+          return <VisitedPath key={index} data-testid={name} d={path} />;
+        } else if (wantToVisit.includes(name)) {
+          return <WantToVisitPath key={index} data-testid={name} d={path} />;
+        }
+        return <Path key={index} data-testid={name} d={path} />;
+      })}
     </Svg>
   );
 }
