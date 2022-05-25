@@ -4,11 +4,14 @@ import Navbar from "react-bootstrap/Navbar";
 import Row from "react-bootstrap/Row";
 import WorldMap from "./components/WorldMap/WorldMap";
 import worldmapjson from "./data/worldmap_lowres.json";
+import {
+  getVisitedCountries,
+  getWantToVisitCountries,
+} from "./storage/storageUtil";
 
 function App() {
-  //TODO - wire to local storage
-  const visited: string[] = ["United Kingdom", "Russia", "United States"];
-  const wantToVisit: string[] = ["Sweden"];
+  // setVisitedCountries(["United Kingdom", "Russia", "United States", "Canada"]);
+  // setWantToVisitCountries(["Sweden", "France"]);
 
   return (
     <>
@@ -24,8 +27,8 @@ function App() {
               geojson={worldmapjson}
               height={800}
               width={1200}
-              visited={visited}
-              wantToVisit={wantToVisit}
+              visited={getVisitedCountries()}
+              wantToVisit={getWantToVisitCountries()}
             />
           </Col>
         </Row>
