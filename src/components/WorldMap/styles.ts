@@ -19,10 +19,10 @@ export const Path = styled.path`
 
 export const VisitedPath = styled.path`
     fill: #a1d76a;
-    stroke: #a1d76a;
+    stroke: #88BE51;
 `;
 
 export const WantToVisitPath = styled.path`
     fill: #e9a3c9;
-    stroke: #e9a3c9;
+    stroke: #D08AB0;
 `;
