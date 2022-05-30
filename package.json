@@ -50,5 +50,10 @@
   "devDependencies": {
     "@types/d3": "^7.4.0",
     "prettier": "2.6.2"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!d3)/"
+    ]
   }
 }
